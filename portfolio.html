@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Portfolio Website</title>
+    <link rel="icon" type="image/png" href="img/icon.png" />
+    <!-- Link To CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- Box Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <style>
+    .wave-text {
+      display: inline-block;
+      animation: wave-animation 1.5s infinite;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    @keyframes wave-animation {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+  <body>
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-10 p-4 md:p-6">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <div class="logo-container">
+            <img src="img/icon.png" class="logo-icon w-16 h-8 md:w-24 md:h-10" />
+          </div>
+          <!-- Tambahkan dark mode toggle di Android -->
+          <div id="darkmode" class="ml-2 md:hidden cursor-pointer">
+            <i class="bx bx-moon text-2xl"></i>
+          </div>
+        </div>
+        <!-- Menu Container for Desktop -->
+        <div class="menu-container hidden md:block">
+          <ul class="navbar flex space-x-4 ml-6">
+            <!-- Tambahkan margin kiri di sini -->
+            <li><a href="index.html" class="font-bold">Home</a></li>
+            <li><a href="about.html" class="font-bold">About</a></li>
+            <li><a href="skills.html" class="font-bold">Skills</a></li>
+            <li><a href="services.html" class="font-bold">Services</a></li>
+            <li><a href="portfolio.html" class="font-bold">Portfolio</a></li>
+            <li><a href="kontak.html" class="font-bold">Contact</a></li>
+            <!-- Ikon Dark Mode di dalam menu -->
+            <li>
+              <button id="darkmode-desktop" class="cursor-pointer">
+                <i class="bx bx-moon text-2xl"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- Hapus Tombol Menu di Android -->
+        <div class="hidden">
+          <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Bottom Navigation for Mobile -->
+    <nav class="fixed bottom-0 left-0 w-full bg-white shadow-inner md:hidden flex justify-around py-2 z-50">
+      <a href="index.html" class="text-center text-gray-500 hover:text-black">
+        <i class="bx bx-home text-2xl text-blue-500 hover:text-blue-700"></i>
+        <!-- Ikon Rumah -->
+        <span class="block text-xs font-semibold">Home</span>
+      </a>
+      <a href="about.html" class="text-center text-gray-500 hover:text-black">
+        <i class="bx bx-user-circle text-2xl text-green-500 hover:text-green-700"></i>
+        <!-- Ikon Profil -->
+        <span class="block text-xs font-semibold">About</span>
+      </a>
+      <a href="skills.html" class="text-center text-gray-500 hover:text-black">
+        <i class="bx bx-rocket text-2xl text-red-500 hover:text-red-700"></i>
+        <!-- Warna merah -->
+        <span class="block text-xs">Skills</span>
+      </a>
+      <a href="services.html" class="text-center text-gray-500 hover:text-black">
+        <i class="bx bx-briefcase text-2xl text-yellow-500 hover:text-yellow-700"></i>
+        <!-- Warna Kuning untuk Services -->
+        <span class="block text-xs font-semibold">Services</span>
+      </a>
+      <a href="portfolio.html" class="text-center text-gray-500 hover:text-black">
+        <i class="bx bx-palette text-2xl text-purple-500 hover:text-purple-700"></i>
+        <!-- Ikon Portfolio -->
+        <span class="block text-xs font-semibold">Portfolio</span>
+      </a>
+      <a href="kontak.html" class="text-center text-gray-500 hover:text-black">
+        <i class="bx bx-phone text-2xl text-orange-500 hover:text-orange-700"></i>
+        <!-- Ikon Kontak -->
+        <span class="block text-xs font-semibold">Contact</span>
+      </a>
+    </nav>
+    <style>
+      .spacer {
+        height: 80px;
+      }
+    </style>
+    <!-- Home -->
+    <div class="spacer"></div>
+
+    <!-- About -->
+
+    <!-- Services -->
+
+    <!-- Portfolio -->
+
+    <!-- Contact -->
+    <section class="portfolio" id="portfolio">
+      <div class="flex flex-col items-center mb-10">
+        <h1 class="text-3xl font-bold text-center wave-text">Portfolio</h1>
+        <div
+          class="h-1 bg-gradient-to-r from-sky-600 to-gray-800 rounded-full mx-auto w-1/12 mt-2"
+          data-aos="fade-right"
+          data-aos-duration="800"
+          data-aos-delay="400"
+        ></div>
+      </div>
+      <div class="portfolio-content">
+        <div class="portfolio-img">
+          <img src="img/kependudukan.png" alt="" />
+        </div>
+        <div class="portfolio-img">
+          <img src="img/portfolio.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <!-- Footer -->
+    <div class="relative bg-gray-100 text-white py-5 overflow-hidden min-h-[150px]">
+      <!-- Particle Container -->
+      <div id="particles-js" class="absolute inset-0 z-0"></div>
+
+      <div class="relative z-10 container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <img src="img/icon.png" alt="Logo" class="w-24 h-auto" />
+
+        <!-- Social Media Icons -->
+        <div class="flex space-x-6">
+          <!-- Instagram -->
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative text-gray-400 transition transform hover:scale-110"
+          >
+            <div
+              class="absolute inset-0 rounded-full p-0.5 bg-gradient-to-r from-[#F58529] via-[#DD2A7B] via-[#8134AF] to-[#515BD4] opacity-0 group-hover:opacity-100"
+            ></div>
+            <i
+              class="bx bxl-instagram text-2xl relative z-10 bg-gray-800 text-white rounded-full p-3 group-hover:text-transparent group-hover:bg-clip-text"
+            ></i>
+          </a>
+          <!-- TikTok -->
+          <a
+            href="https://www.tiktok.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative text-gray-400 transition transform hover:scale-110"
+          >
+            <div
+              class="absolute inset-0 rounded-full p-0.5 bg-gradient-to-r from-[#69C9D0] via-[#EE1D52] to-[#F4F4F4] opacity-0 group-hover:opacity-100"
+            ></div>
+            <i
+              class="bx bxl-tiktok text-2xl relative z-10 bg-gray-800 text-white rounded-full p-3 group-hover:text-transparent group-hover:bg-clip-text"
+            ></i>
+          </a>
+          <!-- Facebook -->
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative text-gray-400 transition transform hover:scale-110"
+          >
+            <div class="absolute inset-0 rounded-full p-0.5 bg-gradient-to-r from-[#1877F2] to-[#4267B2] opacity-0 group-hover:opacity-100"></div>
+            <i
+              class="bx bxl-facebook text-2xl relative z-10 bg-gray-800 text-white rounded-full p-3 group-hover:text-transparent group-hover:bg-clip-text"
+            ></i>
+          </a>
+          <!-- GitHub -->
+          <a
+            href="https://github.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative text-gray-400 transition transform hover:scale-110"
+          >
+            <div class="absolute inset-0 rounded-full p-0.5 bg-gradient-to-r from-[#333333] to-[#6e5494] opacity-0 group-hover:opacity-100"></div>
+            <i
+              class="bx bxl-github text-2xl relative z-10 bg-gray-800 text-white rounded-full p-3 group-hover:text-transparent group-hover:bg-clip-text"
+            ></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="mt-4 text-center text-xs text-gray-400 relative z-10">
+        <p>Created by <a href="#" class="text-blue-400 hover:underline">Syahrul Ramadhan</a> | All Rights Reserved.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 100, density: { enable: true, value_area: 800 } },
+          color: { value: "#ffffff" },
+          shape: {
+            type: "circle",
+            stroke: { width: 0, color: "#000000" },
+            polygon: { nb_sides: 5 },
+          },
+          opacity: {
+            value: 0.5,
+            random: false,
+            anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
+          },
+          size: {
+            value: 3,
+            random: true,
+            anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#000080",
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 6,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: { enable: false, rotateX: 600, rotateY: 1200 },
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "push" },
+            resize: true,
+          },
+          modes: {
+            grab: { distance: 140, line_linked: { opacity: 1 } },
+            bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+            repulse: { distance: 200, duration: 0.4 },
+            push: { particles_nb: 4 },
+            remove: { particles_nb: 2 },
+          },
+        },
+        retina_detect: true,
+      });
+    </script>
+
+    <!-- Link To JS -->
+    <script src="./js/script.js"></script>
+  </body>
+</html>
