@@ -18,19 +18,34 @@ window.onscroll = () => {
   navbar.classList.remove("active");
 };
 
-// Dark Mode Toggle
-const darkModeToggle = document.getElementById("darkmode");
+const darkModeToggle = document.getElementById("darkmode-toggle");
 const darkModeDesktop = document.getElementById("darkmode-desktop");
+const darkModeAndroid = document.getElementById("darkmode"); // Tambahkan untuk Android
 const body = document.body;
 
 // Fungsi untuk mengaktifkan dark mode dan memperbarui ikon
 function toggleDarkMode() {
   body.classList.toggle("dark-mode");
+
+  // Simpan status dark mode di localStorage
+  if (body.classList.contains("dark-mode")) {
+    localStorage.setItem("darkMode", "enabled");
+  } else {
+    localStorage.setItem("darkMode", "disabled");
+  }
+
   updateDarkModeIcon();
 }
 
 // Menambahkan event listener untuk toggle dark mode di Android
-darkModeToggle.addEventListener("click", toggleDarkMode);
+if (darkModeToggle) {
+  darkModeToggle.addEventListener("click", toggleDarkMode);
+}
+
+// Menambahkan event listener untuk toggle dark mode di Android (menangani klik pada elemen dengan id "darkmode")
+if (darkModeAndroid) {
+  darkModeAndroid.addEventListener("click", toggleDarkMode);
+}
 
 // Menambahkan event listener untuk toggle dark mode di desktop
 if (darkModeDesktop) {
@@ -40,15 +55,41 @@ if (darkModeDesktop) {
 // Fungsi untuk mengganti ikon dark mode antara "bx-moon" dan "bx-sun"
 function updateDarkModeIcon() {
   const iconClass = body.classList.contains("dark-mode") ? "bx-sun" : "bx-moon";
-  const darkModeIcons = [darkModeToggle, darkModeDesktop].filter(Boolean);
+
+  // Ikon untuk elemen-elemen yang dapat mengubah dark mode
+  const darkModeIcons = [darkModeToggle, darkModeDesktop, darkModeAndroid].filter(Boolean);
 
   darkModeIcons.forEach((icon) => {
-    icon.querySelector("i").className = `bx ${iconClass} text-2xl`;
+    const iconElement = icon.querySelector("i");
+    if (iconElement) {
+      iconElement.className = `bx ${iconClass} text-2xl`;
+    }
   });
 }
 
-// Inisialisasi ikon berdasarkan mode saat halaman dimuat
-window.addEventListener("DOMContentLoaded", updateDarkModeIcon);
+// Mengecek status dark mode dari localStorage saat halaman dimuat
+window.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("darkMode") === "enabled") {
+    body.classList.add("dark-mode");
+    darkModeToggle.checked = true; // Centang checkbox jika dark mode aktif
+  } else if (localStorage.getItem("darkMode") === "disabled") {
+    body.classList.remove("dark-mode");
+    darkModeToggle.checked = false; // Hilangkan centang checkbox jika dark mode non-aktif
+  }
+
+  // Perbarui ikon berdasarkan status dark mode saat halaman dimuat
+  updateDarkModeIcon();
+});
+
+// Mengecek status dark mode dari localStorage saat halaman dimuat
+window.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("darkMode") === "enabled") {
+    body.classList.add("dark-mode");
+  } else if (localStorage.getItem("darkMode") === "disabled") {
+    body.classList.remove("dark-mode");
+  }
+  updateDarkModeIcon();
+});
 
 // Form Submission
 function submitForm() {
@@ -125,3 +166,14 @@ document.addEventListener("DOMContentLoaded", () => {
     isMenuOpen = !isMenuOpen;
   });
 });
+
+window.onscroll = function () {
+  var backToTopBtn = document.getElementById("backToTopBtn");
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    console.log("Scrolled down!");
+    backToTopBtn.style.display = "flex";
+  } else {
+    console.log("Scrolled up!");
+    backToTopBtn.style.display = "none";
+  }
+};
