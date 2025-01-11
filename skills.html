@@ -15,6 +15,14 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000, // Durasi animasi dalam milidetik
+        once: true, // Animasi hanya berjalan sekali ketika muncul di viewport
+      });
+    </script>
   </head>
   <style>
     .wave-text {
@@ -34,90 +42,184 @@
     }
   </style>
   <body>
+    <div class="loader">
+      <div class="🤚">
+        <div class="👉"></div>
+        <div class="👉"></div>
+        <div class="👉"></div>
+        <div class="👉"></div>
+        <div class="🌴"></div>
+        <div class="👍"></div>
+      </div>
+    </div>
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-10 p-4 md:p-6">
-        <div class="flex justify-between items-center">
-          <div class="flex items-center">
-            <div class="logo-container">
-              <img src="img/icon.png" class="logo-icon w-16 h-8 md:w-24 md:h-10" />
-            </div>
-            <!-- Tambahkan dark mode toggle di Android -->
-            <div id="darkmode" class="ml-2 md:hidden cursor-pointer">
-              <i class="bx bx-moon text-2xl"></i>
-            </div>
+    <nav class="fixed top-0 left-0 w-full shadow-md z-50 p-4 md:p-6">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center justify-between">
+          <div class="logo-container">
+            <img src="img/logowebsiterulz.png" class="logo-icon w-16 h-8 md:w-24 md:h-10" />
           </div>
-          <!-- Menu Container for Desktop -->
-          <div class="menu-container hidden md:block">
-            <ul class="navbar flex space-x-4 ml-6">
-              <!-- Tambahkan margin kiri di sini -->
-              <li><a href="index.html" class="font-bold">Home</a></li>
-              <li><a href="about.html" class="font-bold">About</a></li>
-              <li><a href="skills.html" class="font-bold">Skills</a></li>
-              <li><a href="sertificate.html" class="font-bold">Certificate</a></li>
-              <li><a href="services.html" class="font-bold">Services</a></li>
-              <li><a href="portfolio.html" class="font-bold">Portfolio</a></li>
-              <li><a href="kontak.html" class="font-bold">Contact</a></li>
-              <!-- Ikon Dark Mode di dalam menu -->
-              <li>
-                <button id="darkmode-desktop" class="cursor-pointer">
-                  <i class="bx bx-moon text-2xl"></i>
-                </button>
-              </li>
-            </ul>
+
+          <!-- Tambahkan spacing antara logo dan language toggle -->
+          <div class="relative ml-40 md:hidden">
+            <span class="font-bold cursor-pointer" id="language-toggle-mobile"> ID | IN </span>
           </div>
-          <!-- Hapus Tombol Menu di Android -->
-          <div class="hidden">
-            <div class="bx bx-menu" id="menu-icon"></div>
+          <!-- Tambahkan dark mode toggle di Android -->
+          <div id="darkmode" class="ml-2 md:hidden cursor-pointer relative -mt-1.5">
+            <i class="bx bx-moon text-2xl"></i>
           </div>
         </div>
-      </nav>
-  
-      <!-- Bottom Navigation for Mobile -->
-      <nav class="fixed bottom-0 left-0 w-full bg-white shadow-inner md:hidden flex justify-around py-2 z-50">
-        <a href="index.html" class="text-center text-gray-500 hover:text-black flex flex-col items-center">
-          <img src="img/home.png" alt="About Us" class="w-7 h-7 mb-1 hover:scale-110 transition-transform" />
-          <!-- Ikon Rumah -->
-          <span class="block text-xs font-semibold">Home</span>
-        </a>
-        <a href="about.html" class="text-center text-gray-500 hover:text-black flex flex-col items-center">
-          <img src="img/about.png" alt="About Us" class="w-7 h-7 mb-1 hover:scale-110 transition-transform" />
-          <!-- Ikon Profil -->
-          <span class="block text-xs font-semibold">About</span>
-        </a>
-        <a href="skills.html" class="text-center text-gray-500 hover:text-black flex flex-col items-center">
-          <img src="img/skillls.png" alt="Rocket Icon" class="w-7 h-7 mb-1 hover:scale-110 transition-transform" />
-          <!-- Ikon Roket sebagai Gambar -->
-          <span class="block text-xs font-semibold">Skills</span>
-        </a>
-  
-        <a href="sertificate.html" class="text-center text-gray-500 hover:text-black flex flex-col items-center">
-          <img src="img/sertifikat.png" alt="Certificate Icon" class="w-7 h-7 mb-1 hover:scale-110 transition-transform" />
-          <!-- Ikon Sertifikat sebagai Gambar -->
-          <span class="block text-xs font-semibold">Certificate</span>
-        </a>
-  
-        <a href="services.html" class="text-center text-gray-500 hover:text-black flex flex-col items-center">
-          <img src="img/services.png" alt="Certificate Icon" class="w-7 h-7 mb-1 hover:scale-110 transition-transform" />
-          <!-- Warna Kuning untuk Services -->
-          <span class="block text-xs font-semibold">Services</span>
-        </a>
-        <a href="portfolio.html" class="text-center text-gray-500 hover:text-black flex flex-col items-center">
-          <img src="img/portfolio02.png" alt="Rocket Icon" class="w-7 h-7 mb-1 hover:scale-110 transition-transform" />
-          <!-- Ikon Portfolio -->
-          <span class="block text-xs font-semibold">Portfolio</span>
-        </a>
-        <a href="kontak.html" class="text-center text-gray-500 hover:text-black flex flex-col items-center">
-          <img src="img/contact.png" alt="Rocket Icon" class="w-7 h-7 mb-1 hover:scale-110 transition-transform" />
-          <!-- Ikon Kontak -->
-          <span class="block text-xs font-semibold">Contact</span>
-        </a>
-      </nav>
+        <!-- Menu Container for Desktop -->
+        <div class="menu-container hidden md:block">
+          <ul class="navbar flex space-x-4 ml-6">
+            <!-- Menu items di sini -->
+            <li><a href="index.html" class="font-bold" id="home">🚀 Home</a></li>
+            <li><a href="about.html" class="font-bold" id="about">😎 About</a></li>
+            <li><a href="skills.html" class="font-bold" id="skills">💡Skills</a></li>
+            <li><a href="sertificate.html" class="font-bold" id="appreciation">📑Appreciation</a></li>
+            <li><a href="portfolio.html" class="font-bold" id="project">⚒️ Project</a></li>
+            <li><a href="kontak.html" class="font-bold" id="contact">📲 Contact</a></li>
+            <!-- language -->
+            <!-- language -->
+            <li class="relative">
+              <button id="language-toggle" class="font-bold">
+                <i class="fas fa-globe"></i>
+              </button>
+              <div id="language-dropdown" class="absolute bg-white shadow-lg p-2 mt-1 rounded hidden">
+                <button class="lang-button" data-lang="en">
+                  <img src="img/inggris01.png" alt="English" class="flag-icon" />
+                  <span class="lang-text">English</span>
+                </button>
+                <button class="lang-button" data-lang="id">
+                  <img src="img/indonesia.png" alt="Indonesia" class="flag-icon" />
+                  <span class="lang-text">Indonesia</span>
+                </button>
+              </div>
+            </li>
+
+            <!-- Ikon Dark Mode di dalam menu -->
+            <li>
+              <label class="switch" id="darkmode">
+                <input type="checkbox" id="darkmode-toggle" />
+                <span class="slider"></span>
+                <span class="clouds_stars"></span>
+              </label>
+            </li>
+            <!-- Dropdown untuk memilih bahasa -->
+          </ul>
+        </div>
+        <!-- Hapus Tombol Menu di Android -->
+        <div class="hidden">
+          <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Bottom Navigation for Mobile -->
     <style>
+      .nav-item {
+        font-size: 13px; /* Ukuran teks menu */
+        gap: 4px; /* Jarak antar elemen dalam item */
+      }
+
+      .nav-item i {
+        font-size: 25px; /* Ukuran ikon */
+      }
+
+      .nav-item span {
+        font-size: 14px; /* Ukuran teks menu */
+      }
+    </style>
+
+    <nav class="fixed bottom-0 left-0 w-full bg-white shadow-inner md:hidden flex justify-around py-3 z-50">
+      <a href="index.html" class="nav-item text-center text-gray-500 hover:text-black flex flex-col items-center">
+        <i class="fas fa-home"></i>
+        <span id="home" class="block font-semibold">Home</span>
+      </a>
+      <a href="about.html" class="nav-item text-center text-gray-500 hover:text-black flex flex-col items-center">
+        <i class="fas fa-user"></i>
+        <span id="about" class="block font-semibold">About</span>
+      </a>
+      <a href="skills.html" class="nav-item text-center text-gray-500 hover:text-black flex flex-col items-center">
+        <i class="fas fa-lightbulb"></i>
+        <span id="skills" class="block font-semibold">Skills</span>
+      </a>
+      <a href="sertificate.html" class="nav-item text-center text-gray-500 hover:text-black flex flex-col items-center">
+        <i class="fas fa-award"></i>
+        <span id="appreciation" class="block font-semibold">Appreciation</span>
+      </a>
+      <a href="portfolio.html" class="nav-item text-center text-gray-500 hover:text-black flex flex-col items-center">
+        <i class="fas fa-tools"></i>
+        <span id="project" class="block font-semibold">Project</span>
+      </a>
+      <a href="kontak.html" class="nav-item text-center text-gray-500 hover:text-black flex flex-col items-center">
+        <i class="fas fa-envelope"></i>
+        <span id="contact" class="block font-semibold">Contact</span>
+      </a>
+    </nav>
+
+    <style>
+      .lang-button {
+        display: flex;
+        align-items: center;
+        padding: 8px 20px; /* Padding lebih rapat dan estetis */
+        border: none;
+        background: #fff;
+        border-radius: 8px; /* Rounded corners */
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease; /* Transisi halus */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan tombol */
+      }
+
+      .lang-button .flag-icon {
+        width: 25px; /* Ukuran bendera yang lebih kecil */
+        height: auto;
+        margin-right: 8px; /* Jarak antara gambar dan teks */
+        transition: transform 0.3s ease; /* Animasi efek zoom pada gambar */
+      }
+
+      /* Untuk tombol saat hover */
+      .lang-button:hover {
+        background-color: #f0f0f0;
+      }
+
+      /* Menambahkan gaya untuk bola dunia dan animasi rotasi */
+      #language-toggle i {
+        font-size: 30px;
+        animation: rotate 2s infinite linear;
+      }
+
+      /* Animasi rotasi */
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
       .spacer {
         height: 50px;
       }
+
+      .image {
+        user-select: none; /* Mencegah gambar untuk dipilih */
+        -webkit-user-select: none; /* Untuk browser Safari */
+        -moz-user-select: none; /* Untuk Firefox */
+      }
+      img {
+        user-select: none; /* Menonaktifkan pemilihan teks atau gambar */
+        -webkit-user-select: none; /* Untuk Safari */
+        -moz-user-select: none; /* Untuk Firefox */
+        pointer-events: none; /* Menonaktifkan interaksi dengan gambar */
+        -webkit-user-drag: none; /* Mencegah drag pada gambar di browser Webkit (Chrome, Safari) */
+        -moz-user-drag: none; /* Mencegah drag pada gambar di Firefox */
+        -ms-user-drag: none; /* Mencegah drag pada gambar di Internet Explorer */
+        display: block; /* Memastikan gambar tidak berada dalam elemen inline */
+      }
     </style>
     <!-- Home -->
+    <div class="spacer"></div>
     <div class="spacer"></div>
 
     <!-- About -->
@@ -130,7 +232,7 @@
     <section class="skills" id="skills">
       <!-- Skills Content -->
       <div class="flex flex-col items-center mb-10">
-        <h1 class="text-3xl font-bold text-center wave-text">Skills</h1>
+        <h1 class="text-3xl font-bold text-center wave-text" id="skills-title">💡 My Skills</h1>
         <div
           class="h-1 bg-gradient-to-r from-sky-600 to-gray-800 rounded-full mx-auto w-1/12 mt-2"
           data-aos="fade-right"
@@ -139,258 +241,514 @@
         ></div>
       </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
-          <!-- Left Side: Skill List -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="flex items-center justify-center p-4 bg-white text-black rounded-lg" data-aos="fade-up">
-              <img src="https://img.icons8.com/color/48/000000/android-os.png" alt="Android" class="w-8 h-8 mr-2" /> Android
-            </div>
-            <div class="flex items-center justify-center p-4 bg-white text-black rounded-lg" data-aos="fade-up">
-              <img src="https://img.icons8.com/color/48/000000/blogger.png" alt="Blogger" class="w-8 h-8 mr-2" /> Blogger
-            </div>
-            <div class="flex items-center justify-center p-4 bg-white text-black rounded-lg" data-aos="fade-up">
-              <img src="https://img.icons8.com/color/48/000000/bootstrap.png" alt="Bootstrap" class="w-8 h-8 mr-2" /> Bootstrap
-            </div>
-            <div class="flex items-center justify-center p-4 bg-white text-black rounded-lg" data-aos="fade-up">
-              <img src="https://img.icons8.com/color/48/000000/nodejs.png" alt="Node.js" class="w-8 h-8 mr-2" /> Node.js
-            </div>
-            <div class="flex items-center justify-center p-4 bg-white text-black rounded-lg" data-aos="fade-up">
-              <img src="https://img.icons8.com/color/48/000000/c-sharp-logo-2.png" alt="C#" class="w-8 h-8 mr-2" /> C#
-            </div>
-            <div class="flex items-center justify-center p-4 bg-white text-black rounded-lg" data-aos="fade-up">
-              <img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML" class="w-8 h-8 mr-2" /> HTML
-            </div>
-          </div>
+      <div class="card">
+        <img src="img/asrtonotbintang.png" alt="Astronaut Image Left" class="image left" />
+      </div>
 
-          <!-- Middle: Illustration -->
-          <div class="flex justify-center">
-            <img src="img/1234.png" alt="Gambar IMG" class="w-96 rounded-lg move-up-down" data-aos="fade-left" />
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+        <!-- Left Side: Skill List -->
+        <div class="grid grid-cols-1 gap-4">
+          <div
+            class="flex flex-col items-center justify-center p-4 dark:bg-gray-800 text-black dark:text-white rounded-lg my-7"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <img src="img/blogger-svgrepo-com.svg" alt="Blogger" class="w-20 h-20 mr-2" />
+            <span class="skill-title" id="skill-blogger">Blogger</span>
           </div>
+          <div
+            class="flex flex-col items-center justify-center p-4 dark:bg-gray-800 text-black dark:text-white rounded-lg my-7 lg:-ml-80"
+            data-aos="fade-down"
+            data-aos-delay="300"
+          >
+            <img src="img/html5-02-svgrepo-com.svg" alt="HTML" class="w-20 h-20 mr-2" />
+            <span class="skill-title" id="skill-html">HTML</span>
+          </div>
+          <div
+            class="flex flex-col items-center justify-center p-4 dark:bg-gray-800 text-black dark:text-white rounded-lg my-7"
+            data-aos="fade-up-right"
+            data-aos-delay="500"
+          >
+            <img src="img/bootstrap-fill-svgrepo-com.svg" alt="Bootstrap" class="w-20 h-20 mr-2" />
+            <span class="skill-title" id="skill-bootstrap">Bootstrap</span>
+          </div>
+        </div>
 
-          <!-- Right Side: Skill List -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="flex items-center justify-center p-4 bg-white text-black rounded-lg" data-aos="fade-up">
-              <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JavaScript" class="w-8 h-8 mr-2" /> JavaScript
-            </div>
-            <div class="flex items-center justify-center p-4 bg-white text-black rounded-lg" data-aos="fade-up">
-              <img src="https://img.icons8.com/color/48/000000/vue-js.png" alt="Vue.js" class="w-8 h-8 mr-2" /> Vue.js
-            </div>
-            <div class="flex items-center justify-center p-4 bg-white text-black rounded-lg" data-aos="fade-up">
-              <img src="img/Cod.png" alt="CodeIgniter" class="w-8 h-8 mr-2" /> CodeIgniter
-            </div>
-            <div class="flex items-center justify-center p-4 bg-white text-black rounded-lg" data-aos="fade-up">
-              <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS" class="w-8 h-8 mr-2" /> CSS
-            </div>
-            <div class="flex items-center justify-center p-4 bg-white text-black rounded-lg" data-aos="fade-up">
-              <img src="https://img.icons8.com/color/48/000000/figma.png" alt="Figma" class="w-8 h-8 mr-2" /> Figma
-            </div>
-            <div class="flex items-center justify-center p-4 bg-white text-black rounded-lg" data-aos="fade-up">
-              <img src="https://img.icons8.com/color/48/000000/mysql-logo.png" alt="MySQL" class="w-8 h-8 mr-2" /> MySQL
-            </div>
+        <!-- Middle: Illustration -->
+        <div class="flex justify-center">
+          <img
+            src="img/skillllls02.png"
+            alt="Illustration"
+            class="w-96 rounded-lg move-up-down glowing-img"
+            data-aos="fade-up-left"
+            data-aos-delay="700"
+          />
+        </div>
+
+        <!-- Right Side: Skill List -->
+        <div class="grid grid-cols-1 gap-4">
+          <div
+            class="flex flex-col items-center justify-center p-4 dark:bg-gray-800 text-black dark:text-white rounded-lg my-7"
+            data-aos="fade-down-right"
+            data-aos-delay="800"
+          >
+            <img src="img/javascript-svgrepo-com-1.svg" alt="JavaScript" class="w-20 h-20px mr-2" />
+            <span class="skill-title" id="skill-javascript">JavaScript</span>
+          </div>
+          <div
+            class="flex flex-col items-center justify-center p-4 dark:bg-gray-800 text-black dark:text-white rounded-lg my-7 lg:ml-80"
+            data-aos="flip-up"
+            data-aos-delay="1000"
+          >
+            <img src="img/css3-svgrepo-com.svg" alt="CSS" class="w-20 h-20px mr-2" />
+            <span class="skill-title" id="skill-css">CSS</span>
+          </div>
+          <div
+            class="flex flex-col items-center justify-center p-4 dark:bg-gray-800 text-black dark:text-white rounded-lg my-7"
+            data-aos="fade-down-left"
+            data-aos-delay="1300"
+          >
+            <img src="img/tailwind-svgrepo-com.svg" alt="Tailwind CSS" class="w-20 h-20px mr-2" />
+            <span class="skill-title" id="skill-tailwind">Tailwind</span>
           </div>
         </div>
       </div>
     </section>
+    <style>
+      .glowing-img {
+        --glow-color: rgb(255, 255, 255);
+        --glow-spread-color: rgba(255, 255, 255, 0.781);
+        --enhanced-glow-color: rgb(231, 206, 255);
+        border: 0.25em solid var(--glow-color);
+        color: var(--glow-color);
+        background-color: var(--btn-color);
+        box-shadow: 0 0 1em 0.25em var(--glow-color), 0 0 4em 1em var(--glow-spread-color), inset 0 0 0.75em 0.25em var(--glow-color);
+        text-shadow: 0 0 0.5em var(--glow-color);
+        transition: all 0.3s;
+      }
 
-    <section class="services" id="services">
-        <div class="heading">
-          <h2>Services</h2>
-          <span>Our Services</span>
-        </div>
-        <div class="services-content">
-          <!-- Box 1 -->
-          <div class="services-box">
-            <i class="bx bx-code-alt"></i>
-            <h3>Web Development</h3>
-            <a href="#">Learn More</a>
-          </div>
-          <!-- Box 2 -->
-          <div class="services-box">
-            <i class="bx bx-server"></i>
-            <h3>Backend Development</h3>
-            <a href="#">Learn More</a>
-          </div>
-          <!-- Box 3 -->
-          <div class="services-box">
-            <i class="bx bx-brush"></i>
-            <h3>UI/UX Design</h3>
-            <a href="#">Learn More</a>
-          </div>
-  
-          <div class="services-box">
-            <i class="bx bxl-wordpress"></i>
-            <h3>Wordpress Developer</h3>
-            <a href="#">Learn More</a>
-          </div>
-        </div>
-      </section>
-      <style>
-        @keyframes move-up-down {
-          0% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-          100% {
-            transform: translateY(0);
-          }
+      .glowing-img::after {
+        background-color: var(--glow-spread-color);
+        filter: blur(2em);
+        opacity: 0.7;
+        transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+        --glow-spread-color: rgba(255, 255, 255);
+      }
+
+      .glowing-img:hover {
+        color: var(--btn-color);
+        background-color: var(--glow-color);
+        box-shadow: 0 0 1em 0.25em var(--glow-color), 0 0 4em 2em var(--glow-spread-color), inset 0 0 0.75em 0.25em var(--glow-color);
+        --glow-spread-color: rgba(255, 255, 255);
+      }
+
+      .glowing-img:active {
+        box-shadow: 0 0 0.6em 0.25em var(--glow-color), 0 0 2.5em 2em var(--glow-spread-color), inset 0 0 0.5em 0.25em var(--glow-color);
+        --glow-spread-color: rgba(255, 255, 255);
+      }
+    </style>
+    <style>
+      #language-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%; /* Posisi dropdown di bawah tombol */
+        left: 50%; /* Tempatkan dropdown di tengah secara horizontal */
+        transform: translateX(-50%); /* Pindahkan ke kiri setengah dari lebar dropdown */
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        width: 170px; /* Lebar dropdown */
+      }
+
+      #language-dropdown.show {
+        display: block; /* Tampilkan dropdown ketika di-klik */
+      }
+
+      .lang-button:hover .lang-text {
+        color: #007bff;
+      }
+
+      /* Gaya untuk teks */
+      .lang-text {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+      }
+    </style>
+
+    <script>
+      // Menangani klik tombol bahasa
+      document.getElementById("language-toggle").addEventListener("click", function () {
+        const dropdown = document.getElementById("language-dropdown");
+        dropdown.classList.toggle("show"); // Menambahkan/menyembunyikan dropdown
+      });
+    </script>
+
+    <style>
+      /* CSS for Dark Mode Clip-Path */
+      @media (prefers-color-scheme: dark) {
+        .dark\:clip-path-polygon {
+          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
         }
-    
-        .move-up-down {
-          animation: move-up-down 4s infinite ease-in-out;
+      }
+    </style>
+
+    <style>
+      /* Default untuk teks skill */
+      .skill-title {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #000; /* Warna teks default */
+        transition: color 0.3s ease;
+      }
+
+      /* Warna teks di dark mode */
+      body.dark-mode .skill-title {
+        color: #fff; /* Warna teks saat mode gelap */
+      }
+    </style>
+    <style>
+      /* Hold the Astronaut Background */
+      .card {
+        position: absolute;
+        top: 100px; /* Geser elemen ke bawah 50px */
+        left: 0;
+        width: 100%;
+        height: 25em;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        font-family: Montserrat;
+        font-weight: bold;
+        padding: 1em 2em 1em 1em;
+        border-radius: 20px;
+        overflow: hidden;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .card img {
+        width: 12em;
+        margin-right: 1em;
+        animation: move 10s ease-in-out infinite;
+        z-index: 5;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        inset: -3px;
+        border-radius: 10px;
+        transform: translate(-5px, 250px);
+        transition: 0.4s ease-in-out;
+        z-index: -2; /* Pastikan efek ini juga berada di belakang */
+      }
+
+      /* Animations */
+      @keyframes move {
+        0% {
+          transform: translateX(0em) translateY(0em);
         }
-      </style>
+        25% {
+          transform: translateY(-1em) translateX(-1em);
+          rotate: -10deg;
+        }
+        50% {
+          transform: translateY(1em) translateX(-1em);
+        }
+        75% {
+          transform: translateY(-1.25em) translateX(1em);
+          rotate: 10deg;
+        }
+        100% {
+          transform: translateX(0em) translateY(0em);
+        }
+      }
+    </style>
+    <style>
+      @keyframes move-up-down {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .move-up-down {
+        animation: move-up-down 4s infinite ease-in-out;
+      }
+    </style>
+    <script>
+      // Event Listener untuk tombol toggle dropdown di Android
+      document.getElementById("language-toggle-mobile").addEventListener("click", function () {
+        const dropdown = document.getElementById("language-dropdown-mobile");
+        dropdown.classList.toggle("hidden");
+      });
+
+      // Klik di luar dropdown untuk menutupnya
+      window.addEventListener("click", function (e) {
+        const dropdown = document.getElementById("language-dropdown-mobile");
+        const toggle = document.getElementById("language-toggle-mobile");
+        if (!dropdown.contains(e.target) && e.target !== toggle) {
+          dropdown.classList.add("hidden");
+        }
+      });
+    </script>
+    <script>
+      const texts = {
+        en: {
+          home: "Home",
+          about: "About",
+          skills: "Skills",
+          appreciation: "Appreciation",
+          project: "Project",
+          contact: "Contact",
+          skillsTitle: "💡 My Skills",
+          skillBlogger: "Blogger",
+          skillHTML: "HTML",
+          skillBootstrap: "Bootstrap",
+          skillJavaScript: "JavaScript",
+          skillCSS: "CSS",
+          skillTailwind: "Tailwind CSS",
+        },
+        id: {
+          home: "Beranda",
+          about: "Tentang",
+          skills: "Keterampilan",
+          appreciation: "Apresiasi",
+          project: "Proyek",
+          contact: "Kontak",
+          skillsTitle: "💡 Keterampilan Saya",
+          skillBlogger: "Blogger",
+          skillHTML: "HTML",
+          skillBootstrap: "Bootstrap",
+          skillJavaScript: "JavaScript",
+          skillCSS: "CSS",
+          skillTailwind: "Tailwind CSS",
+        },
+      };
+
+      // Fungsi untuk mengatur bahasa
+      function setLanguage(lang) {
+        // Simpan bahasa ke localStorage
+        localStorage.setItem("language", lang);
+
+        // Ubah teks konten berdasarkan bahasa yang dipilih
+        document.getElementById("skills-title").innerText = texts[lang].skillsTitle;
+        document.getElementById("skill-blogger").innerText = texts[lang].skillBlogger;
+        document.getElementById("skill-html").innerText = texts[lang].skillHTML;
+        document.getElementById("skill-bootstrap").innerText = texts[lang].skillBootstrap;
+        document.getElementById("skill-javascript").innerText = texts[lang].skillJavaScript;
+        document.getElementById("skill-css").innerText = texts[lang].skillCSS;
+        document.getElementById("skill-tailwind").innerText = texts[lang].skillTailwind;
+
+        document.getElementById("home").innerHTML = "🚀 " + texts[lang].home;
+        document.getElementById("about").innerHTML = "😎 " + texts[lang].about;
+        document.getElementById("skills").innerHTML = "💡 " + texts[lang].skills;
+        document.getElementById("appreciation").innerHTML = "📑 " + texts[lang].appreciation;
+        document.getElementById("project").innerHTML = "⚒️ " + texts[lang].project;
+        document.getElementById("contact").innerHTML = "📲 " + texts[lang].contact;
+
+        document.querySelector("nav.fixed.bottom-0 a:nth-child(1) span").innerText = texts[lang].home; // 🚀 Home
+        document.querySelector("nav.fixed.bottom-0 a:nth-child(2) span").innerText = texts[lang].about; // 😎 About
+        document.querySelector("nav.fixed.bottom-0 a:nth-child(3) span").innerText = texts[lang].skills; // 💡 Skills
+        document.querySelector("nav.fixed.bottom-0 a:nth-child(4) span").innerText = texts[lang].appreciation; // 📑 Appreciation
+        document.querySelector("nav.fixed.bottom-0 a:nth-child(5) span").innerText = texts[lang].project; // ⚒️ Project
+        document.querySelector("nav.fixed.bottom-0 a:nth-child(6) span").innerText = texts[lang].contact; // 📲 Contact
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedLanguage = localStorage.getItem("language") || "en";
+        setLanguage(savedLanguage);
+
+        // Tambahkan event listener ke tombol bahasa
+        document.querySelectorAll(".lang-button").forEach((button) => {
+          button.addEventListener("click", () => {
+            const lang = button.getAttribute("data-lang");
+            setLanguage(lang);
+          });
+        });
+      });
+      document.getElementById("language-toggle-mobile").addEventListener("click", function () {
+        const currentLang = localStorage.getItem("language") || "en"; // Ambil bahasa saat ini
+        const newLang = currentLang === "en" ? "id" : "en"; // Ganti bahasa
+        setLanguage(newLang); // Panggil fungsi untuk mengubah bahasa
+      });
+    </script>
 
     <div class="spacer"></div>
     <div class="spacer"></div>
     <div class="spacer"></div>
     <!-- Footer -->
-    <div class="relative bg-gray-100 text-white py-5 overflow-hidden min-h-[150px]">
-        <!-- Particle Container -->
-        <div id="particles-js" class="absolute inset-0 z-0"></div>
-      
-        <div class="relative z-10 container mx-auto flex justify-between items-center">
-          <!-- Logo -->
-          <img src="img/icon.png" alt="Logo" class="w-24 h-auto" />
-      
-          <!-- Social Media Icons -->
-          <div class="flex space-x-6">
-            <!-- Instagram -->
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group relative text-gray-400 transition transform hover:scale-110"
-            >
-              <div
-                class="absolute inset-0 rounded-full p-0.5 bg-gradient-to-r from-[#F58529] via-[#DD2A7B] via-[#8134AF] to-[#515BD4] opacity-0 group-hover:opacity-100"
-              ></div>
-              <i
-                class="bx bxl-instagram text-2xl relative z-10 bg-gray-800 text-white rounded-full p-3 group-hover:text-transparent group-hover:bg-clip-text"
-              ></i>
-            </a>
-            <!-- TikTok -->
-            <a
-              href="https://www.tiktok.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group relative text-gray-400 transition transform hover:scale-110"
-            >
-              <div
-                class="absolute inset-0 rounded-full p-0.5 bg-gradient-to-r from-[#69C9D0] via-[#EE1D52] to-[#F4F4F4] opacity-0 group-hover:opacity-100"
-              ></div>
-              <i
-                class="bx bxl-tiktok text-2xl relative z-10 bg-gray-800 text-white rounded-full p-3 group-hover:text-transparent group-hover:bg-clip-text"
-              ></i>
-            </a>
-            <!-- Facebook -->
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group relative text-gray-400 transition transform hover:scale-110"
-            >
-              <div
-                class="absolute inset-0 rounded-full p-0.5 bg-gradient-to-r from-[#1877F2] to-[#4267B2] opacity-0 group-hover:opacity-100"
-              ></div>
-              <i
-                class="bx bxl-facebook text-2xl relative z-10 bg-gray-800 text-white rounded-full p-3 group-hover:text-transparent group-hover:bg-clip-text"
-              ></i>
-            </a>
-            <!-- GitHub -->
-            <a
-              href="https://github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group relative text-gray-400 transition transform hover:scale-110"
-            >
-              <div
-                class="absolute inset-0 rounded-full p-0.5 bg-gradient-to-r from-[#333333] to-[#6e5494] opacity-0 group-hover:opacity-100"
-              ></div>
-              <i
-                class="bx bxl-github text-2xl relative z-10 bg-gray-800 text-white rounded-full p-3 group-hover:text-transparent group-hover:bg-clip-text"
-              ></i>
-            </a>
-          </div>
-        </div>
-      
-        <!-- Copyright -->
-        <div class="mt-4 text-center text-xs text-gray-400 relative z-10">
-          <p>
-            Created by <a href="#" class="text-blue-400 hover:underline">Syahrul Ramadhan</a> | All Rights Reserved.
+    <div class="relative bg-gray-800 text-white py-5 overflow-hidden min-h-[150px]">
+      <!-- Particle Container -->
+
+      <div class="relative z-10 container mx-auto flex justify-center items-center flex-col">
+        <!-- Logo -->
+        <div class="w-full text-center text-sm relative z-50">
+          <p class="font-semibold text-white relative inline-block">
+            Created by
+            <span class="text-blue-400 hover:text-blue-500 transition-all duration-300 ease-in-out">Muh Syahrul Ramadhan </span>
+            | All Rights Reserved.
           </p>
+
+          <!-- Garis Animasi 1 -->
+          <span class="absolute left-1/2 transform -translate-x-1/2 top-[calc(100%+10px)] width-[220px] animate-border-move"></span>
+
+          <!-- Garis Animasi 2 -->
+          <span class="absolute left-1/2 transform -translate-x-1/2 top-[calc(100%+40px)] width-[150px] animate-border-move-second"></span>
         </div>
       </div>
-      
-      
-      
-      
-      
-          <!-- Footer -->
-      <!-- Particles.js Library -->
-      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-      
-      <script>
-        particlesJS("particles-js", {
-          particles: {
-            number: { value: 100, density: { enable: true, value_area: 800 } },
-            color: { value: "#ffffff" },
-            shape: {
-              type: "circle",
-              stroke: { width: 0, color: "#000000" },
-              polygon: { nb_sides: 5 },
-            },
-            opacity: {
-              value: 0.5,
-              random: false,
-              anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
-            },
-            size: {
-              value: 3,
-              random: true,
-              anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
-            },
-            line_linked: {
-              enable: true,
-              distance: 150,
-              color: "#000080",
-              opacity: 0.4,
-              width: 1,
-            },
-            move: {
-              enable: true,
-              speed: 6,
-              direction: "none",
-              random: false,
-              straight: false,
-              out_mode: "out",
-              bounce: false,
-              attract: { enable: false, rotateX: 600, rotateY: 1200 },
-            },
+    </div>
+
+    <style>
+      /* Keyframes Animasi Garis 1 */
+      @keyframes border-move {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
+      /* Keyframes Animasi Garis 2 */
+      @keyframes border-move-second {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
+      /* Animasi Garis 1 */
+      .animate-border-move {
+        content: "";
+        position: absolute;
+        top: 100%; /* Tepat di bawah teks */
+        left: 50%; /* Setengah dari lebar elemen induk */
+        transform: translateX(-50%); /* Pusatkan garis */
+        width: 220px; /* Atur panjang garis sesuai kebutuhan */
+        height: 3px; /* Tebal garis */
+        margin-top: 10px;
+        background: linear-gradient(90deg, #3490dc, #38b2ac, #f6e05e, #ed64a6, #3490dc);
+        background-size: 300% 100%; /* Agar animasi mulus */
+        border-radius: 2px;
+        animation: border-move 2s linear infinite;
+      }
+
+      /* Animasi Garis 2 */
+      .animate-border-move-second {
+        content: "";
+        position: absolute;
+        top: 135%; /* Memberikan jarak lebih dari garis pertama */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px; /* Panjang garis kedua */
+        height: 3px; /* Tebal garis */
+        margin-top: 10px;
+        background: linear-gradient(90deg, #f6e05e, #38b2ac, #3490dc, #ed64a6, #f6e05e);
+        background-size: 300% 100%;
+        border-radius: 2px;
+        animation: border-move-second 2s linear infinite;
+      }
+    </style>
+
+    <script>
+      document.querySelector(".image").addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+        alert("Klik kanan dinonaktifkan pada gambar ini.");
+      });
+    </script>
+
+    <script>
+      window.addEventListener("load", () => {
+        const loader = document.querySelector(".loader");
+        loader.style.opacity = "1"; // Menjaga opacity di 1 hingga animasi selesai
+        loader.style.transition = "opacity 1s ease"; // Ubah durasi menjadi 2 detik (atau lebih lama)
+
+        // Delay lebih lama sebelum menyembunyikan loader
+        setTimeout(() => {
+          loader.style.opacity = "0";
+          setTimeout(() => {
+            loader.style.display = "none";
+          }, 500); // Menunggu 2 detik setelah opacity diubah menjadi 0
+        }, 500); // Loader tetap ditampilkan selama 5 detik
+      });
+    </script>
+
+    <!-- Footer -->
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 100, density: { enable: true, value_area: 800 } },
+          color: { value: "#ffffff" },
+          shape: {
+            type: "circle",
+            stroke: { width: 0, color: "#000000" },
+            polygon: { nb_sides: 5 },
           },
-          interactivity: {
-            detect_on: "canvas",
-            events: {
-              onhover: { enable: true, mode: "grab" },
-              onclick: { enable: true, mode: "push" },
-              resize: true,
-            },
-            modes: {
-              grab: { distance: 140, line_linked: { opacity: 1 } },
-              bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
-              repulse: { distance: 200, duration: 0.4 },
-              push: { particles_nb: 4 },
-              remove: { particles_nb: 2 },
-            },
+          opacity: {
+            value: 0.5,
+            random: false,
+            anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
           },
-          retina_detect: true,
-        });
-      </script>
-      
-      
-          <!-- Link To JS -->
-          <script src="./js/script.js"></script>
-        </body>
-      </html>
-      
+          size: {
+            value: 3,
+            random: true,
+            anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#000080",
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 6,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: { enable: false, rotateX: 600, rotateY: 1200 },
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "push" },
+            resize: true,
+          },
+          modes: {
+            grab: { distance: 140, line_linked: { opacity: 1 } },
+            bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+            repulse: { distance: 200, duration: 0.4 },
+            push: { particles_nb: 4 },
+            remove: { particles_nb: 2 },
+          },
+        },
+        retina_detect: true,
+      });
+    </script>
+
+    <!-- Link To JS -->
+    <script src="./js/script.js"></script>
+  </body>
+</html>
