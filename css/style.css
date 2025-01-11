@@ -147,18 +147,23 @@ nav ul li a:hover {
   font-weight: 400;
   margin: 0.7rem 0 1rem;
 }
+
 .social {
   display: flex;
   flex-direction: column;
+  align-items: center; /* Menambahkan align-items untuk memastikan ikon terpusat */
 }
+
 .social a {
   font-size: 22px;
   color: var(--text-color);
-  .social a {
-    color: black; /* Atur warna default untuk ikon */
-    transition: color 0.3s; /* Animasi transisi saat berubah warna */
-  }
+  transition: color 0.3s; /* Animasi transisi saat berubah warna */
 }
+
+.social a:hover {
+  color: var(--hover); /* Warna saat hover */
+}
+
 .loader {
   position: fixed;
   top: 0;
